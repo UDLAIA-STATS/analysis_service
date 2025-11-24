@@ -8,6 +8,7 @@ from analisis.services.r2_downloader import R2Downloader
 from analisis.tasks.analysis.analysis_components import AnalysisComponents
 from analisis.tasks.analysis import ( preprocessing, post_processing, assign_processing )
 from analisis.entities.utils.json_transform import player_frames_to_json, player_tracks_to_json
+from analisis.tasks.analysis.verify_model import prepare_model
 from celery import shared_task
 from decouple import config
 
@@ -22,6 +23,11 @@ def run_analysis(video_path: str):
     Returns:
     None
     """
+
+    prepare_model(
+        model_path= Path("../res/models/football_model.torchscript"),
+        source_path= Path("../res/models"))
+
 
     downloader = R2Downloader({
         "BUCKET": config("R2_BUCKET"),
@@ -50,7 +56,7 @@ def run_analysis(video_path: str):
     team_ball_control = assign_processing(components, video_frames)
     player_tracks_json = player_frames_to_json(components.tracks_collection.tracks["players"])
     extract_player_images(video_frames, components.tracks_collection, '../res/output')
-    
+
     return {
         "player_tracks": player_tracks_json,
         "team_ball_control": team_ball_control
