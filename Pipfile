@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = false
+name = "pip_conf_index_global"
+
+[packages]
+pydantic = "*"
+autopep8 = "*"
+flake8 = "*"
+isort = "*"
+numpy = "*"
+opencv-python = "*"
+pandas = "*"
+pycodestyle = "*"
+supervision = "*"
+torchmetrics = "*"
+ultralytics = "*"
+python-decouple = "*"
+scikit-learn = "*"
+pillow = "*"
+pylint = "*"
+pylint-django = "*"
+djangorestframework = "*"
+django = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.13"

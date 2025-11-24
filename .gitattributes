@@ -1,0 +1,6 @@
+*.sh text eol=lf
+*.py text eol=lf
+Dockerfile text eol=lf
+
+*.ext !text !filter !merge !diff
+*.torchscript !text !filter !merge !diff
