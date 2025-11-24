@@ -89,4 +89,5 @@ def assign_processing(components: AnalysisComponents, video_frames: List[MatLike
                 team_ball_control[-1] if team_ball_control else -1)
 
     team_ball_control = np.array(team_ball_control)
+    
     return team_ball_control

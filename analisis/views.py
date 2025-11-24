@@ -15,4 +15,4 @@ class AnalyzeVideoView(APIView):
         video_url = request.data.get("video_url")
         res = run_analysis(video_url)
 
-        return Response({"message": "Video recibido y validado correctamente."})
+        return Response({"message": "Video recibido y validado correctamente.", "result": res})
