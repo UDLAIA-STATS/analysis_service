@@ -25,8 +25,8 @@ def run_analysis(video_path: str):
     """
 
     prepare_model(
-        model_path= Path("../res/models/football_model.torchscript"),
-        source_path= Path("../res/models"))
+        model_path=AnalysisComponents.get_model_path(),
+        source_path=AnalysisComponents.get_model_path().parent)
 
 
     downloader = R2Downloader({
